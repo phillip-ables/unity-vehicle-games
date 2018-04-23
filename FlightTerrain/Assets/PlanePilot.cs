@@ -6,7 +6,7 @@ public class PlanePilot : MonoBehaviour {
 
     public float flightSpeed;
     private float minSpeed = 35.0f;
-    private float maxSpeed = 130.0f;
+    private float maxSpeed = 80.0f;
 
     private void Start()
     {
