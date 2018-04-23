@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlanePilot : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        Debug.Log("Plane Pilot Script added to:" + gameObject.name);
+    }
+
+    private void Update()
+    {
+        transform.Rotate(Input.GetAxis("Vertical"), 0.0f, -Input.GetAxis("Horizontal"));
+
+    }
 }
