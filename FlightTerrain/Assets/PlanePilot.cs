@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlanePilot : MonoBehaviour {
 
+    public float flightSpeed;
+
     private void Start()
     {
         Debug.Log("Plane Pilot Script added to:" + gameObject.name);
@@ -11,6 +13,8 @@ public class PlanePilot : MonoBehaviour {
 
     private void Update()
     {
+        transform.position += transform.forward * Time.deltaTime * flightSpeed;
+
         transform.Rotate(Input.GetAxis("Vertical"), 0.0f, -Input.GetAxis("Horizontal"));
     }
 }
