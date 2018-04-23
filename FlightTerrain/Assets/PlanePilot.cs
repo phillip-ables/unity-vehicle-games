@@ -12,6 +12,5 @@ public class PlanePilot : MonoBehaviour {
     private void Update()
     {
         transform.Rotate(Input.GetAxis("Vertical"), 0.0f, -Input.GetAxis("Horizontal"));
-
     }
 }
