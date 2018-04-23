@@ -14,6 +14,7 @@ public class PlanePilot : MonoBehaviour {
     private void Update()
     {
         transform.position += transform.forward * Time.deltaTime * flightSpeed;
+        flightSpeed -= transform.forward.y * 2.0f;
 
         transform.Rotate(Input.GetAxis("Vertical"), 0.0f, -Input.GetAxis("Horizontal"));
 
