@@ -15,9 +15,9 @@ public class PlanePilot : MonoBehaviour {
 
     private void Update()
     {
-        Vector3 moveCamTo = transform.position - transform.forward * 10.0f + transform.up * 5.0f;
+        Vector3 moveCamTo = transform.position - transform.forward * 10.0f + Vector3.up * 5.0f;
         Camera.main.transform.position = moveCamTo;
-        Camera.main.transform.LookAt(transform.position);
+        Camera.main.transform.LookAt(transform.position + transform.forward * 30.0f);
 
         transform.position += transform.forward * Time.deltaTime * flightSpeed;
         flightSpeed -= transform.forward.y * 50.0f * Time.deltaTime;
