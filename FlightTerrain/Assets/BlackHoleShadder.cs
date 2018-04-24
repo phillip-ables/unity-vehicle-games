@@ -57,6 +57,10 @@ public class BlackHoleShadder : MonoBehaviour {
             {
                 pos = new Vector2(wtsp.x / cam.pixelWidth, wtsp.y / cam.pixelHeight);
                 //apply shader parameters
+                _material.SetVector("_Position", pos);
+                _material.SetFloat("_Ratio", aspectRatio);
+                _material.SetFloat("_Rad", radius);
+                _material.SetFloat("_Distance", Vector3.Distance(blackhole.position, transform.position));
             }
         }   
     }
