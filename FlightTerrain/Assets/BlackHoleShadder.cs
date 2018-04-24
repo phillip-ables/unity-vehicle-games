@@ -43,8 +43,21 @@ public class BlackHoleShadder : MonoBehaviour {
         }
     }
 
+    Vector3 wtsp;
+    Vector2 pos;
+
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        
+        if(shader && material && blackhole)
+        {
+            wtsp = cam.WorldToScreenPoint(blackhole.position);
+
+            //is the blackhole in front of the camera
+            if(wtsp.z > 0)
+            {
+                pos = new Vector2(wtsp.x / cam.pixelWidth, wtsp.y / cam.pixelHeight);
+                //apply shader parameters
+            }
+        }   
     }
 }
