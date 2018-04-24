@@ -25,7 +25,11 @@
 			};
 
 
-			sampler2D _MainTex;
+			uniform sampler2D _MainTex;
+			uniform float2 _Position;
+			uniform float _Rad;
+			uniform float _Ratio;
+			uniform float _Distance;
 
 			ENDCG
 		}
