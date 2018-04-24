@@ -61,6 +61,9 @@ public class BlackHoleShadder : MonoBehaviour {
                 _material.SetFloat("_Ratio", aspectRatio);
                 _material.SetFloat("_Rad", radius);
                 _material.SetFloat("_Distance", Vector3.Distance(blackhole.position, transform.position));
+
+                //apply the shader to the image
+                Graphics.Blit(source, destination, material);
             }
         }   
     }
