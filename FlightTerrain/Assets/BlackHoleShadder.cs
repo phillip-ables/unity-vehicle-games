@@ -8,7 +8,7 @@ public class BlackHoleShadder : MonoBehaviour {
     //public settings
     public Shader shader;
     public Transform blackhole;
-    public float ratio;  // aspect ratio of the screen;
+    public float aspectRatio;  // aspect ratio of the screen;
     public float radius;
 
     //private settings
@@ -20,14 +20,31 @@ public class BlackHoleShadder : MonoBehaviour {
         //way of accessing the material but also making sure its created at any given time
         get
         {
-            if(_material == null)
+            if (_material == null)
             {
                 _material = new Material(shader);
                 _material.hideFlags = HideFlags.HideAndDontSave;
             }
-
             return _material;
         }
     }
 
+    private void OnEnable()
+    {
+        cam = GetComponent<Camera>();
+        aspectRatio = 1f / cam.aspect;
+    }
+
+    public virtual void OnDisable()
+    {
+        if(_material)
+        {
+            DestroyImmediate(_material);
+        }
+    }
+
+    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+    {
+        
+    }
 }
