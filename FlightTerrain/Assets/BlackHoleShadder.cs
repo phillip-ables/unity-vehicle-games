@@ -15,6 +15,19 @@ public class BlackHoleShadder : MonoBehaviour {
     Camera cam;
     Material _material;  // this isnt something that exist means underscore
 
+    Material material
+    {
+        //way of accessing the material but also making sure its created at any given time
+        get
+        {
+            if(_material == null)
+            {
+                _material = new Material(shader);
+                _material.hideFlags = HideFlags.HideAndDontSave;
+            }
 
+            return _material;
+        }
+    }
 
 }
