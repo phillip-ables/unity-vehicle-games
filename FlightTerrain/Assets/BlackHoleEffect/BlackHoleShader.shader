@@ -18,18 +18,23 @@
 			
 			#include "UnityCG.cginc"
 
-			struct appdata
-			{
-				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
-			};
-
-
 			uniform sampler2D _MainTex;
 			uniform float2 _Position;
 			uniform float _Rad;
 			uniform float _Ratio;
 			uniform float _Distance;
+
+			struct v2f {
+				float4 pos : POSITION,
+					float2 uv : TEXTCORD0;
+			};
+
+			v2f vert(appdata_img v) {
+				v2f o;
+				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.uv = v.textcood;
+				return o;
+			}
 
 			ENDCG
 		}
