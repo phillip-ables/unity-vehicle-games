@@ -249,6 +249,7 @@
   <ItemGroup>
     <Compile Include="Assets\BlackHoleEffect\BlackHoleShadder.cs" />
     <Compile Include="Assets\FlightSimulator\PlanePilot.cs" />
+    <Compile Include="Assets\ReactiveRotation\Reactive.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BlackHoleEffect\BlackHoleShader.shader" />
