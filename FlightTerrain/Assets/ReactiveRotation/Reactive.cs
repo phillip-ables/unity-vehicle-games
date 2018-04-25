@@ -10,5 +10,17 @@ public class Reactive : MonoBehaviour {
     private Vector2 mousePos;
     private Vector2 baseRotation;
 
-    
+    private void Start()
+    {
+        baseRotation = new Vector2(transform.rotation.eulerAngles.x - angleRange.x * 0.5f,
+                                    transform.rotation.eulerAngles.y - angleRange.y * 0.5f);
+    }
+
+    private void Update()
+    {
+        mousePos = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
+        float xRot = mousePos.y * angleRange.x + baseRotation.x;
+        float yRot = mousePos.x * angleRange.y + baseRotation.y;
+        transform.localRotation = Quaternion.Euler(new Vector3(xRot, yRot));
+    }
 }
