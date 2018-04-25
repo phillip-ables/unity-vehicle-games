@@ -256,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1240502542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.44, y: -2.79, z: 9.31}
+  m_LocalPosition: {x: 1.21, y: -2.79, z: 9.31}
   m_LocalScale: {x: 4.026557, y: 4.0265584, z: 4.0265584}
   m_Children: []
   m_Father: {fileID: 0}
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308a58880b0d5814cbadca0abdbaf1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader: {fileID: 0}
+  shader: {fileID: 4800000, guid: 9b7beb9dfd9def5458a3b5db659cb26c, type: 3}
   blackhole: {fileID: 1459951315}
   aspectRatio: 0.5625
   radius: 0.25
