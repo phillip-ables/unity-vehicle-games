@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ReactiveRotation/ReactiveRotation.unity
+    guid: bf4277e3ea2cc9c48b30efd045d188cb
+  - enabled: 1
+    path: Assets/FlightSimulator/FlightSimulator.unity
+    guid: d654f82f5eed7d34b8285a8d4797b143
