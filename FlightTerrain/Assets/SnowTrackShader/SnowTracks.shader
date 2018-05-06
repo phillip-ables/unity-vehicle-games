@@ -16,10 +16,38 @@
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows
+		#pragma surface surf Standard fullforwardshadows vertex:disp tessellate:tessDistance
 
 		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 3.0
+ 		#pragma target 4.6            
+
+		#include "Tessellation.cginc"
+
+			struct appdata {
+			float4 vertex : POSITION;
+			float4 tangent : TANGENT;
+			float3 normal : NORMAL;
+			float2 texcoord : TEXCOORD0;
+		};
+
+		float _Tess;
+
+		float4 tessDistance(appdata v0, appdata v1, appdata v2) {
+			float minDist = 10.0;
+			float maxDist = 25.0;
+			return UnityDistanceBasedTess(v0.vertex, v1.vertex, v2.vertex, minDist, maxDist, _Tess);
+		}
+
+		sampler2D _DispTex;
+		float _Displacement;
+
+		void disp(inout appdata v)
+		{
+			float d = tex2Dlod(_DispTex, float4(v.texcoord.xy,0,0)).r * _Displacement;
+			v.vertex.xyz += v.normal * d;
+		}
+
+
 
 		sampler2D _MainTex;
 
