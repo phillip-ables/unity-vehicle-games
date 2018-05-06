@@ -13,8 +13,9 @@
 		LOD 300
 
 		CGPROGRAM
-#pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessFixed nolightmap
+#pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessDistance nolightmap
 #pragma target 4.6
+#include "Tessellation.cginc"
 
 		struct appdata {
 		float4 vertex : POSITION;
@@ -25,9 +26,10 @@
 
 	float _Tess;
 
-	float4 tessFixed()
-	{
-		return _Tess;
+	float4 tessDistance(appdata v0, appdata v1, appdata v2) {
+		float minDist = 10.0;
+		float maxDist = 25.0;
+		return UnityDistanceBasedTess(v0.vertex, v1.vertex, v2.vertex, minDist, maxDist, _Tess);
 	}
 
 	sampler2D _DispTex;
